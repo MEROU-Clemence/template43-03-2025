@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{CurrentPage.TitlePage}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{CurrentPage.TextPageWithoutHtmlLength150}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlPageTemplate}}" />
+    <meta property="og:url" content="{{UrlPageTemplate}}" />
+    <meta property="og:title" content="{{CurrentPage.TitlePage}}" />
+    <meta property="og:image" content="{{#CurrentPage.PhotosPage.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/CurrentPage.PhotosPage.0}}{{^CurrentPage.PhotosPage.0}}{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}{{/CurrentPage.PhotosPage.0}}" />
+    <meta property="og:description" content="{{CurrentPage.TextPageLength150}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main class="page-discover">
+        <!-- SECTION BANNER -->
+        <section class="section-title-BG bg-img" style="background-image: url({{#CurrentPage.PhotosPage.0}}{{UrlMedias}}/crop-2000x800/{{IdMedia}}/{{FileNamePhoto}}{{/CurrentPage.PhotosPage.0}}{{^CurrentPage.PhotosPage.0}}{{#Photos.0}}{{UrlMedias}}/crop-2000x800/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}{{/CurrentPage.PhotosPage.0}}); " alt="{{NamePhoto}}-page-bg">
+            <div class="opacity">
+
+                <div class="content-section">
+                    <h1>{{ResourcesTemplate.discover}}</h1>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION AUTRES PAGES -->
+        <section class="section section-other-pages">
+            <div class="content-section">
+
+                <div class="other-pages">
+                    {{#Pages}}
+                    <div class="btn-contain-contain">
+                        <div class="btn-contain btn-contain-other-pages">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="135" height="52" viewBox="0 0 135 52" fill="none">
+                                <path d="M76.363 5.41962C76.363 5.41962 13.0971 16.8774 2.21982 37.1501C-8.6575 57.4228 56.0162 51.3727 84.7986 44.4219C108.986 38.5809 140.073 26.1327 132.969 13.1318C125.866 0.130814 67.7056 1.01258 67.7056 1.01258" stroke="var(--color-btn)" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            <a class="btn link-page-global" href="{{UrlPageTemplate}}" itemprop="url">{{TitlePage}}</a>
+                        </div>
+                    </div>
+                    {{/Pages}}
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION PAGES -->
+        <section class="section section-news">
+            <div class="content-section">
+
+                <div class="title-descrip-and-btn-page">
+                    <div class="title-and-descrip-page">
+                        <div class="section-title">
+                            <h2 class="h2-page-title">{{CurrentPage.TitlePage}}</h2>
+                        </div>
+
+                        <div class="descrip-page">{{{CurrentPage.TextPage}}}</div>
+                    </div>
+
+                    <div id="seeMore3" class="more-less-btn-contain">
+                        <a href="#" class="more-less-btn">{{ResourcesTemplate.ShowMore}}</a>
+                    </div>
+                    <div id="seeLess3" class="more-less-btn-contain">
+                        <a href="#" class="more-less-btn">{{ResourcesTemplate.ShowLess}}</a>
+                    </div>
+                </div>
+
+                {{#CurrentPage.PhotosPage.1}}
+                <div class="owl-wrapper">
+                    <div class="owl-carousel owl-theme slider-page-page">
+                        {{#CurrentPage.PhotosPage}}
+                        <div class="photo-page">
+                            <img src="{{UrlMedias}}/crop-1300x1000/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}-photo-page">
+                        </div>
+                        {{/CurrentPage.PhotosPage}}
+                    </div>
+                </div>
+                {{/CurrentPage.PhotosPage.1}}
+                {{^CurrentPage.PhotosPage.1}}
+                {{#CurrentPage.PhotosPage}}
+                <div class="photo-page">
+                    <img src="{{UrlMedias}}/crop-1300x1000/{{IdMedia}}/{{FileNamePhoto}}" alt="{{NamePhoto}}-photo-page">
+                </div>
+                {{/CurrentPage.PhotosPage}}
+                {{/CurrentPage.PhotosPage.1}}
+
+            </div>
+        </section>
+
+        {{#HasNewsletterActivated}}
+        <!-- SECTION NEWSLETTER -->
+        {{>Newsletter}}
+        {{/HasNewsletterActivated}}
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.BookTitle}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{MetaDescriptionOnlineReservation}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlOnlineBooking}}" />
+    <meta property="og:url" content="{{UrlOnlineBooking}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.BookTitle}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{MetaDescriptionOnlineReservation}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+    {{#HasBookingActivated}}{{>ScriptCalendarClick}}{{/HasBookingActivated}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-title-BG bg-img" style="background-image: url({{#Photos.0}}{{UrlMedias}}/crop-2600x2600/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}})" alt="{{NamePhoto}}-online-resa-bg">
+            <div class="opacity">
+
+                <div class="content-section">
+                    <h1>{{^isActivity}}{{ResourcesTemplate.BookYourTrip}}{{/isActivity}}{{#isActivity}}{{ResourcesTemplate.BookYourActivity}}{{/isActivity}}</h1>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION WIDGET -->
+        <section class="section section-widget-be-alone">
+            <div class="content-section">
+
+                {{#HasBookingActivated}}
+                <div id="section-BE" class="section-BE-home {{#isActivity}}be-home-activity{{/isActivity}}">
+                    <div class="check-availability">
+                        <div class="rounded-box">
+                            {{>Widget-BE}}
+                            {{>Widget-BE-secure}}
+                        </div>
+                    </div>
+                </div>
+                {{/HasBookingActivated}}
+
+            </div>
+        </section>
+
+        <!-- SECTION SVG WAVE -->
+        <section class="section-svg-wave">
+            <svg class="svg-wave" xmlns="http://www.w3.org/2000/svg" width="1920" height="93" viewBox="0 0 1920 93" fill="none">
+                <path d="M1920 66.9098V92.8559H0V70.565C16.4301 75.1496 34.7931 70.9491 47.667 57.9513L86.8588 18.363C111.107 -6.121 150.658 -6.121 174.907 18.363L204.645 48.3981C228.881 72.8821 268.444 72.8821 292.693 48.3981L322.418 18.363C346.667 -6.121 386.23 -6.121 410.466 18.363L440.204 48.3981C464.44 72.8821 504.004 72.8821 528.252 48.3981L557.978 18.363C582.226 -6.121 621.79 -6.121 646.026 18.363L675.764 48.3981C700 72.8821 739.563 72.8821 763.812 48.3981L793.537 18.363C817.786 -6.121 857.349 -6.121 881.585 18.363L911.323 48.3981C935.572 72.8821 975.123 72.8821 999.371 48.3981L1029.11 18.363C1053.35 -6.121 1092.91 -6.121 1117.16 18.363L1146.88 48.3981C1171.13 72.8821 1210.69 72.8821 1234.93 48.3981L1264.67 18.363C1288.9 -6.121 1328.47 -6.121 1352.72 18.363L1382.44 48.3981C1406.69 72.8821 1446.25 72.8821 1470.49 48.3981L1500.23 18.363C1524.46 -6.121 1564.03 -6.121 1588.28 18.363L1618 48.3981C1642.25 72.8821 1681.81 72.8821 1706.05 48.3981L1735.79 18.363C1760.02 -6.121 1799.59 -6.121 1823.84 18.363L1863.03 57.9513C1878.39 73.4768 1901.61 76.463 1920 66.9098Z" fill="var(--color-bg-2)" />
+            </svg>
+        </section>
+
+        {{#HasCalendarActivated}}
+        <!-- SECTION CALENDRIER -->
+        {{>Calendar}}
+        {{/HasCalendarActivated}}
+
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>

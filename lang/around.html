@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="{{CurrentLang.IsoLang}}" culture="{{CurrentLang.CultureLang}}">
+<head>
+    <title>{{ResourcesTemplate.Around}} - {{CustomTitle}} - {{City}} - {{Country}}</title>
+    <meta name="description" content="{{SubtitleAround}}">
+    {{>CommonMetaTags}}
+    <link rel="canonical" href="{{UrlAround}}" />
+    <meta property="og:url" content="{{UrlAround}}" />
+    <meta property="og:title" content="{{ResourcesTemplate.Around}}" />
+    <meta property="og:image" content="{{#Photos.0}}{{UrlMedias}}/crop-300x200/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.0}}" />
+    <meta property="og:description" content="{{SubtitleAround}}" />
+    {{>FaviconTags}}
+    {{>CommonStylesheets}}
+</head>
+<body>
+    {{{ScriptAnalytics}}}
+    {{{GoogleTagManagerBody}}}
+    {{>Header}}
+
+    <main>
+        <!-- SECTION BANNER -->
+        <section class="section-title-BG bg-img" style="background-image: url({{#Photos.1}}{{UrlMedias}}/crop-2000x800/{{IdMedia}}/{{FileNamePhoto}}{{/Photos.1}});" alt="{{NamePhoto}}-around-bg">
+            <div class="opacity">
+
+                <div class="content-section">
+                    <h1>{{ResourcesTemplate.pageMenuTitle_around}}</h1>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION AROUND -->
+        <section class="section section-around">
+            <div class="content-section around-items-w">
+
+                <div class="section-title">
+                    <h2>{{ResourcesTemplate.DiscoverSurroundingArea}}</h2>
+                </div>
+
+                <div class="presta-big-contain presta-big-contain-in-offers">
+                    {{#OisAssocied}}
+                    <div class="presta-contain grid-item" data-id-type="{{IdTypeOiAssocied}}" data-type-label="{{TypeOiAssocied}}" data-lat="{{XOiAssocied}}" data-lng="{{YOiAssocied}}">
+                        <div class="bg-img" style="background-image: url({{#PhotoOiAssocied}}{{UrlMedias}}/crop-1200x900/{{IdMedia}}/{{FileNamePhoto}}{{/PhotoOiAssocied}});" alt="{{NamePhoto}}-around-img">
+                            <div class="around-type">{{TypeOiAssocied}}</div>
+                        </div>
+
+                        <div class="infos-contain">
+                            <div class="title-and-descrip">
+                                <h3 data-name>{{TitleOiAssocied}}</h3>
+
+                                {{#DistanceOiAssocied}}
+                                <div class="around-distance">
+                                    <i class="las la-map-marker"></i>{{ResourcesTemplate.At}} {{DistanceOiAssocied}} {{ResourcesTemplate.Km}} {{ResourcesTemplate.FromOurPlace}}
+                                </div>
+                                {{/DistanceOiAssocied}}
+                            </div>
+
+                            <div class="around-item-content-w">
+                                <div class="text-description">{{DescriptionOiAssocied}}</div>
+
+                                <div class="link-to-see see-all">{{ResourcesTemplate.ReadMore2}}</div>
+                                <div class="link-to-see see-menos hidden">{{ResourcesTemplate.ShowLess}}</div>
+                            </div>
+                        </div>
+
+                        <div class="btn-contain-contain {{^TextOpinion}}no-text-opinion{{/TextOpinion}}">
+                            <div class="btn-contain">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="135" height="52" viewBox="0 0 135 52" fill="none">
+                                    <path d="M76.363 5.41962C76.363 5.41962 13.0971 16.8774 2.21982 37.1501C-8.6575 57.4228 56.0162 51.3727 84.7986 44.4219C108.986 38.5809 140.073 26.1327 132.969 13.1318C125.866 0.130814 67.7056 1.01258 67.7056 1.01258" stroke="var(--color-btn)" stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                                <div class="comment-item-w-contain">
+                                    <div class="comment-item-w">
+                                        <div class="icon-to-see icon-all">{{ResourcesTemplate.OurRecommendation}}</div>
+                                        <div class="icon-to-see icon-menos hidden">{{ResourcesTemplate.OurRecommendation}}</div>
+                                        <div class="text-opinion d-none">{{TextOpinion}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/OisAssocied}}
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION MAP -->
+        <section class="section-map">
+            <div class="section-map-padding-1">
+                <div class="content-section">
+                    <div class="section-title">
+                        <h2>{{ResourcesTemplate.WhereAreWe}}</h2>
+                    </div>
+
+                    <div class="picto-and-address">
+                        <i class="las la-map-marker"></i>
+
+                        <div class="address-line">{{AddressLine}}, {{PostalCode}} {{City}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="applemapkit" class="fullwidth-mapkit" data-lat="{{X}}" data-lng="{{Y}}" data-string="{{CustomTitle}}, {{AddressLine}}, {{PostalCode}}, {{City}}, {{Country}}.">
+                <div id="mapApple"></div>
+            </div>
+
+            <div class="section-map-padding-2">
+                <div class="content-section">
+
+                    <div class="btn-contain-contain">
+                        <div class="btn-contain">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="135" height="52" viewBox="0 0 135 52" fill="none">
+                                <path d="M76.363 5.41962C76.363 5.41962 13.0971 16.8774 2.21982 37.1501C-8.6575 57.4228 56.0162 51.3727 84.7986 44.4219C108.986 38.5809 140.073 26.1327 132.969 13.1318C125.866 0.130814 67.7056 1.01258 67.7056 1.01258" stroke="var(--color-btn)" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            <div data-action="external-map" class="btn link-page-global">{{ResourcesTemplate.Itinerary}}</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    {{>Footer}}
+    {{>CommonScripts}}
+    
+</body>
+</html>
